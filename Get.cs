@@ -6,7 +6,7 @@ internal static class Get
 {
     private static readonly byte[] indexBytes, indexHeaderBytes;
 
-    private static readonly Dictionary<string, string> contentTypeMap = new()
+    private static readonly Dictionary<string, string> imageContentTypeMap = new()
     {
         { "gif", "image/gif" },
         { "jpg", "image/jpeg" },
@@ -40,17 +40,18 @@ internal static class Get
         {
             // Get the filename from the string after the last slash, if any.
             var fileName = part.Substring(lastSlash + 1);
-            string ext = Path.GetExtension(fileName).TrimStart('.') ?? "";
 
             var fullFilePath = Path.Combine(Configuration.BaseImageDir, fileName);
             if (!File.Exists(fullFilePath))
                 return; // TODO: 404?
 
+            string ext = Path.GetExtension(fileName).TrimStart('.') ?? "";
+            string contentType = imageContentTypeMap.TryGetValue(ext, out string? value) ? value : "image/jpeg";
+
             // TODO: In-memory cache for a few most recently returned files?
             byte[] file_content = File.ReadAllBytes(fullFilePath);
             StringBuilder header = new();
             header.Append("HTTP/1.1 200 OK\r\n");
-            string contentType = contentTypeMap.ContainsKey(ext) ? contentTypeMap[ext] : "image/jpeg";
             header.Append($"Content-Type: {contentType}\r\n");
             header.Append($"Content-Length: {file_content.Length}\r\n\n");
             byte[] fileHeaderBytes = Encoding.ASCII.GetBytes(header.ToString());
