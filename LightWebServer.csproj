@@ -9,10 +9,13 @@
 
   <ItemGroup>
     <None Remove=".gitignore" />
+    <None Remove="favicon.ico" />
     <None Remove="LICENSE.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="favicon.ico" />
+    <EmbeddedResource Include="favicon.png" />
     <EmbeddedResource Include="index.html" />
   </ItemGroup>
 
