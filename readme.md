@@ -12,7 +12,6 @@ This is a very light-weight web server written in C#.
 
 ### Potential Future Features
 * In-memory cache for recent images.
-* Handle multiple simultaneous connections better.
 * If you find this app useful, let me know in GitHub discussion area if there are other things it should demonstrate.
 
 ### Out Of Scope
