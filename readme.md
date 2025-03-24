@@ -5,7 +5,7 @@ This is a very light-weight web server written in C#.
 ## Features
 ### Key Features
 * Starts up very quickly. (It has VERY few dependencies.)
-* Usable in local network without any special firewall configuration. (It uses TcpListener instead of the restrictive HttpListener.)
+* Usable in LAN without any special configuration. (It uses `TcpListener` instead of the restrictive `HttpListener`.)
 * Very little code. (It may be a good baseline for other more specific projects.)
 * Serves a Hello World page and can be easily configured to serve images from a local directory.
 * Theoretically platform-agnostic. (I've only tested on Windows so far.)
