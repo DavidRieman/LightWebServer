@@ -33,12 +33,12 @@ For example if you have the following directory file structure:
 ```
 D:\Images
     \Image1.webp
-	\a
-	    \Image2.jpg
-	\b
-	    \Image3.png
+    \a
+        \Image2.jpg
+    \b
+        \Image3.png
 ```
-Then the app will respond with the contents of those images for the following requests, for example, on the localhost:
+Then the app will respond with the contents of those images. For example, on localhost these would be the successful requests:
 ```
 http://localhost:32123/img/Image1.webp
 http://localhost:32123/img/a/Image2.jpg
