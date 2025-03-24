@@ -39,7 +39,7 @@ internal static class Get
         if (part.StartsWith("/img/"))
         {
             // Get the filename from the string after the last slash, if any.
-            var fileName = part.Substring(lastSlash + 1);
+            var fileName = part.Substring(5);
 
             var fullFilePath = Path.Combine(Configuration.BaseImageDir, fileName);
             if (!File.Exists(fullFilePath))
